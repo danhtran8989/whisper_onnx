@@ -42,6 +42,7 @@ def main():
             max_len=args.max_len,
             providers=args.providers
         )
+        print("Transcribing audio...")
         start_time = time.time()
         text = transcriber.transcribe(args.input)
         end_time = time.time()
