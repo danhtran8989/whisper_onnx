@@ -7,7 +7,7 @@ Command-line interface for Whisper ONNX transcriber.
 """
 Command-line interface for Whisper ONNX transcriber.
 """
-
+import os
 import sys
 import argparse
 from pathlib import Path
