@@ -66,7 +66,7 @@ python apps/cli/main.py -i 16.wav
 ### Python Class
 
 ```python
-from whisper_onnx import WhisperONNXTranscriber
+from src.whisper_onnx import WhisperONNXTranscriber
 
 transcriber = WhisperONNXTranscriber(
     model_dir="ckpts/whisper-small",
