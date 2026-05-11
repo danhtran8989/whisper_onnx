@@ -13,7 +13,7 @@ import argparse
 from pathlib import Path
 
 # Add the src directory to Python path so we can import whisper_onnx
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from src.whisper_onnx import WhisperONNXTranscriber
 
