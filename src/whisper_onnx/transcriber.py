@@ -57,7 +57,7 @@ class WhisperONNXTranscriber:
         )
 
         # Load ONNX sessions
-        print("Loading ONNX models...")
+        # print("Loading ONNX models...")
         self.encoder_session = ort.InferenceSession(self.encoder_path, providers=providers)
         self.decoder_session = ort.InferenceSession(self.decoder_path, providers=providers)
 
@@ -65,9 +65,9 @@ class WhisperONNXTranscriber:
         self.encoder_input_names = [inp.name for inp in self.encoder_session.get_inputs()]
         self.decoder_input_names = [inp.name for inp in self.decoder_session.get_inputs()]
 
-        print("Encoder inputs:", self.encoder_input_names)
-        print("Decoder inputs:", self.decoder_input_names)
-        print("Models loaded.")
+        # print("Encoder inputs:", self.encoder_input_names)
+        # print("Decoder inputs:", self.decoder_input_names)
+        # print("Models loaded.")
 
     def load_audio(self, file_path):
         """Load and resample audio to the expected sample rate."""
