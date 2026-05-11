@@ -3,6 +3,7 @@ import numpy as np
 import onnxruntime as ort
 import librosa
 from transformers import WhisperTokenizer, WhisperProcessor
+from .utils import download_whisper_onnx_checkpoint
 
 class WhisperONNXTranscriber:
     """
@@ -37,7 +38,11 @@ class WhisperONNXTranscriber:
         self.sample_rate = sample_rate
         self.max_len = max_len
 
-        # Validate that ONNX files exist
+        # Validate that ONNX files exist; download once if any are missing
+        if not os.path.exists(self.encoder_path) or not os.path.exists(self.decoder_path):
+            download_whisper_onnx_checkpoint("onnx-community/whisper-small", model_dir)
+
+        # After download (or if they already existed), verify both files are present
         if not os.path.exists(self.encoder_path):
             raise FileNotFoundError(f"Encoder ONNX file not found: {self.encoder_path}")
         if not os.path.exists(self.decoder_path):
